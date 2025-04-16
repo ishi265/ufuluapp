@@ -14,6 +14,33 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   late Animation<double> _breathingAnimation;
   String? selectedLanguage = 'Chichewa';
 
+  final List<Map<String, dynamic>> services = [
+    {
+      'text': 'Help-Line',
+      'icon': Iconsax.arrow_right_1,
+      'image': Image.asset(
+        "images/cellphone.png",
+        width: 26,
+      ),
+    },
+    {
+      'text': 'GBV Courses',
+      'icon': Iconsax.arrow_right_1,
+      'image': Image.asset(
+        "images/online-learning.png",
+        width: 26,
+      ),
+    },
+    {
+      'text': 'Text Expert',
+      'icon': Iconsax.arrow_right_1,
+      'image': Image.asset(
+        "images/secure-messaging.png",
+        width: 26,
+      ),
+    }
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -151,20 +178,21 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   Text("Press/Hold button to call",
                       style: TextStyle(fontSize: 18)),
                   SizedBox(
+                    height: 70,
+                  ),
+                  SizedBox(
                     height: 100,
                     child: ListView.builder(
-                        itemCount: 3,
+                        itemCount: services.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
+                          final service = services[index];
                           return Padding(
                             padding: EdgeInsets.only(right: 10),
                             child: ServiceWidget(
-                                text: "Help-Line",
-                                icon: Iconsax.arrow_right_1,
-                                image: Image.asset(
-                                  "images/cellphone.png",
-                                  width: 26,
-                                )),
+                                text: service['text'],
+                                icon: service['icon'],
+                                image: service['image']),
                           );
                         }),
                   )
