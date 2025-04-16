@@ -27,6 +27,9 @@ class Awards extends StatelessWidget {
             ),
             BargeWidget(
               text: "Basics of SGBV",
+            ),
+            BargeWidget(
+              text: "Basics of SGBV",
             )
           ],
         ),
