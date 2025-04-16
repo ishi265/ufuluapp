@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ufuluapp/pages/home.dart';
 import 'package:ufuluapp/pages/startScreen.dart';
 import 'package:ufuluapp/theme/theme.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: StartScreen(),
+      home: Home(),
     );
   }
 }
