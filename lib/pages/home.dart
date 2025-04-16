@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/animation.dart';
 import 'package:iconsax/iconsax.dart';
 
 class Home extends StatefulWidget {
