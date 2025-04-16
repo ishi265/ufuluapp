@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ufuluapp/widgets/BargeWidget.dart';
 
@@ -7,6 +8,11 @@ class Awards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> bargeNames = [
+      "Healthy Relationships",
+      "Basics of SGBV",
+      "Understanding GBV",
+    ];
     return Scaffold(
       body: SafeArea(
           child: Padding(
@@ -25,11 +31,20 @@ class Awards extends StatelessWidget {
             SizedBox(
               height: 50,
             ),
-            BargeWidget(
-              text: "Basics of SGBV",
-            ),
-            BargeWidget(
-              text: "Basics of SGBV",
+            SizedBox(
+              height: 500,
+              child: ListView.builder(
+                  itemCount: bargeNames.length,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) {
+                    final bardge = bargeNames[index];
+
+                    return Column(
+                      children: [
+                        BargeWidget(text: bardge),
+                      ],
+                    );
+                  }),
             )
           ],
         ),
