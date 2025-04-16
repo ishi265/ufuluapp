@@ -22,28 +22,10 @@ class Awards extends StatelessWidget {
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(
-              height: 30,
+              height: 50,
             ),
-            Container(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Iconsax.award5,
-                        color: Theme.of(context).colorScheme.primary,
-                        size: 30,
-                      ),
-                      Text(
-                        "Basics of SGBV",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                  
-                ],
-              ),
+            BargeWidget(
+              text: "Basics of SGBV",
             )
           ],
         ),
