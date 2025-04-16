@@ -150,13 +150,24 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ),
                   Text("Press/Hold button to call",
                       style: TextStyle(fontSize: 18)),
-                  ServiceWidget(
-                      text: "Help-Line",
-                      icon: Iconsax.arrow,
-                      image: Image.asset(
-                        "images/cellphone.png",
-                        width: 26,
-                      ))
+                  SizedBox(
+                    height: 100,
+                    child: ListView.builder(
+                        itemCount: 3,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: EdgeInsets.only(right: 10),
+                            child: ServiceWidget(
+                                text: "Help-Line",
+                                icon: Iconsax.arrow_right_1,
+                                image: Image.asset(
+                                  "images/cellphone.png",
+                                  width: 26,
+                                )),
+                          );
+                        }),
+                  )
                 ],
               )
             ],
