@@ -18,7 +18,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    // Breathing animation controller (repeats forever)
     _breathingController = AnimationController(
       duration: const Duration(milliseconds: 2000), // 2 second cycle
       vsync: this,
@@ -28,7 +27,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _breathingAnimation = Tween<double>(begin: 0.95, end: 1.05).animate(
       CurvedAnimation(
         parent: _breathingController,
-        curve: Curves.easeInOutSine, // Smooth breathing curve
+        curve: Curves.easeInOutSine,
       ),
     );
   }
@@ -109,7 +108,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             color: Colors.black.withOpacity(0.1),
                             blurRadius: 20,
                             spreadRadius: 1,
-                            offset: const Offset(0, 5),
+                            offset: const Offset(0, 3),
                           )
                         ],
                       ),
