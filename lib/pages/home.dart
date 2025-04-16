@@ -44,6 +44,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,7 +62,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       const SizedBox(width: 12),
                       const Text(
                         "John Doe",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w600),
                       )
                     ],
                   ),
@@ -90,37 +92,102 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ),
                 ],
               ),
-              const SizedBox(height: 40),
-              AnimatedBuilder(
-                animation: _breathingController,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: _breathingAnimation.value,
-                    child: Container(
-                      width: 240,
-                      height: 240,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(260),
-                        color: Theme.of(context).colorScheme.primary,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 20,
-                            spreadRadius: 1,
-                            offset: const Offset(0, 3),
+              Column(
+                children: [
+                  const SizedBox(height: 40),
+                  AnimatedBuilder(
+                    animation: _breathingController,
+                    builder: (context, child) {
+                      return Transform.scale(
+                        scale: _breathingAnimation.value,
+                        child: GestureDetector(
+                          onTap: () {
+                            print("SOS button pressed");
+                          },
+                          child: Container(
+                            width: 240,
+                            height: 240,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(260),
+                              color: Theme.of(context).colorScheme.primary,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  blurRadius: 20,
+                                  spreadRadius: 1,
+                                  offset: const Offset(0, 3),
+                                )
+                              ],
+                            ),
+                            child: Center(
+                              child: Image.asset(
+                                "images/telephone-call.png",
+                                width: 98,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "SOS",
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 60),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    "Emergency Help Needed?",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Text("Press/Hold button to call",
+                      style: TextStyle(fontSize: 18)),
+                  Container(
+                    width: 150,
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.secondary,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Call Toll Free",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Icon(
+                                Iconsax.arrow_right_1,
+                                color: Theme.of(context).colorScheme.primary,
+                                size: 20,
+                              ),
+                              Image.asset(
+                                "images/cellphone.png",
+                                width: 26,
+                              )
+                            ],
                           )
                         ],
                       ),
-                      child: Center(
-                        child: Image.asset(
-                          "images/telephone-call.png",
-                          width: 98,
-                        ),
-                      ),
                     ),
-                  );
-                },
-              ),
+                  )
+                ],
+              )
             ],
           ),
         ),
