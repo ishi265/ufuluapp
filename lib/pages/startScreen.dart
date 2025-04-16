@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:ufuluapp/widgets/ButtonWidget.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -35,33 +36,7 @@ class StartScreen extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              Container(
-                width: double.infinity,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Continiue",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Theme.of(context).colorScheme.secondary),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Icon(
-                      Iconsax.arrow_right_1,
-                      size: 20,
-                      color: Theme.of(context).colorScheme.secondary,
-                    )
-                  ],
-                ),
-              )
+              ButtonWidget(text: "Continue", icon: Iconsax.arrow_right_1),
             ],
           ),
         ),
