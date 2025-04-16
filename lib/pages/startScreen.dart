@@ -8,7 +8,10 @@ class StartScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          
+          Image.asset(
+            "images/startscreen.png",
+            width: 250,
+          )
         ],
       ),
     );
