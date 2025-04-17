@@ -90,7 +90,7 @@ class _VideoPageState extends State<VideoPage> {
                         )),
                     SizedBox(height: 16),
                     Text(
-                      'A healthy relationship is one based on mutual respect, equality, consent, and safety—key factors in preventing SGBV. In Malawi, where cultural norms sometimes reinforce gender inequality, promoting healthy relationships is crucial to reducing violence.',
+                      'A healthy relationship is one based on mutual respect, equality, consent, and safety—key factors in preventing GBV. In Malawi, where cultural norms sometimes reinforce gender inequality, promoting healthy relationships is crucial to reducing violence.',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
