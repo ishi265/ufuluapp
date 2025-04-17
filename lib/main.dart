@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: AssignmetPage(),
+      home: AssignmentPage(),
     );
   }
 }
