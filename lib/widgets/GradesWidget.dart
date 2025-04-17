@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ufuluapp/widgets/AssignmentMarkWidget.dart';
 
 class GradesWidget extends StatelessWidget {
   const GradesWidget({
@@ -8,7 +9,16 @@ class GradesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [Text("We start her creating the item")],
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40),
+          child: Text("All Assignments",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+        ),
+        AssignmentMarkWidget(),
+        AssignmentMarkWidget(),
+      ],
     );
   }
 }
