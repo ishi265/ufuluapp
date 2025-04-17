@@ -9,6 +9,27 @@ class Courses extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> courses = [
+      {
+        "title": "Power Dynamics",
+        "rating": 5.0,
+        "reviews": 26,
+        "imagePath": "images/coursename.jpg"
+      },
+      {
+        "title": "Health Relationships",
+        "rating": 3.9,
+        "reviews": 30,
+        "imagePath": "images/coursename.jpg"
+      },
+      {
+        "title": "SEAH",
+        "rating": 3.6,
+        "reviews": 44,
+        "imagePath": "images/coursename.jpg"
+      }
+    ];
+
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Iconsax.arrow_left),
@@ -26,7 +47,7 @@ class Courses extends StatelessWidget {
             SizedBox(height: 36),
             Expanded(
               child: GridView.builder(
-                itemCount: 3,
+                itemCount: courses.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
@@ -35,10 +56,10 @@ class Courses extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   return CourseWidget(
-                    title: "Power Dynamics",
-                    rating: 3.9,
-                    reviews: 30,
-                    imagePath: "images/coursename.jpg",
+                    title: courses[index]['title'],
+                    rating: courses[index]['rating'],
+                    reviews: courses[index]['reviews'],
+                    imagePath: courses[index]['imagePath'],
                   );
                 },
               ),

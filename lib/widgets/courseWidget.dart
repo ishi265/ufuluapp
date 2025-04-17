@@ -22,7 +22,7 @@ class CourseWidget extends StatelessWidget {
           child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: Image.asset(
-                "images/coursename.jpg",
+                imagePath,
                 width: double.infinity,
                 fit: BoxFit.cover,
               )),
@@ -31,7 +31,7 @@ class CourseWidget extends StatelessWidget {
           height: 4,
         ),
         Text(
-          "Power Dynamics",
+          title,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
         SizedBox(
@@ -44,14 +44,14 @@ class CourseWidget extends StatelessWidget {
               width: 10,
             ),
             Text(
-              "4.6",
+              rating.toString(),
               style: TextStyle(fontSize: 14),
             ),
             SizedBox(
               width: 6,
             ),
             Text(
-              "[26]",
+              "[$reviews]",
               style: TextStyle(fontSize: 14),
             )
           ],
