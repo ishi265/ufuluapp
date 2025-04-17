@@ -27,11 +27,20 @@ class AssignmetPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
+              //
               child: Text(
                 "Why is it important to observe GBV around your peers.",
                 style: TextStyle(fontSize: 18),
               ),
-            )
+            ),
+            Text(
+              "Answer 1",
+              style: TextStyle(fontSize: 16),
+            ),
+            Text(
+              "Answer 2",
+              style: TextStyle(fontSize: 16),
+            ),
           ],
         ),
       )),
