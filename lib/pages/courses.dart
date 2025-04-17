@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:ufuluapp/widgets/courseWidget.dart';
 
 class Courses extends StatelessWidget {
   const Courses({super.key});
@@ -14,10 +15,26 @@ class Courses extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Featured Courses",
               style: TextStyle(fontSize: 38, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(height: 36),
+            Expanded(
+              child: GridView.builder(
+                itemCount: 3,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 1.1,
+                ),
+                itemBuilder: (context, index) {
+                  return CourseWidget(); // Reusable widget for each course
+                },
+              ),
             ),
           ],
         ),
