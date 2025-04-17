@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ufuluapp/pages/video.dart';
+import 'package:ufuluapp/pages/assignment.dart';
 import 'package:ufuluapp/theme/theme.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: VideoPage(),
+      home: AssignmetPage(),
     );
   }
 }
