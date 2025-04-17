@@ -28,11 +28,11 @@ class Courses extends StatelessWidget {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 1.1,
+                  mainAxisSpacing: 30,
+                  childAspectRatio: 1,
                 ),
                 itemBuilder: (context, index) {
-                  return CourseWidget(); // Reusable widget for each course
+                  return CourseWidget();
                 },
               ),
             ),

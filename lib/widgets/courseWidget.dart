@@ -17,13 +17,35 @@ class CourseWidget extends StatelessWidget {
                 fit: BoxFit.cover,
               )),
         ),
-        Padding(
-          padding: EdgeInsets.all(8),
-          child: Text(
-            "Course",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+        SizedBox(
+          height: 4,
         ),
+        Text(
+          "Power Dynamics",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+        ),
+        SizedBox(
+          height: 4,
+        ),
+        Row(
+          children: [
+            Image.asset("images/star.png", width: 18, height: 18),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              "4.6",
+              style: TextStyle(fontSize: 14),
+            ),
+            SizedBox(
+              width: 6,
+            ),
+            Text(
+              "[26]",
+              style: TextStyle(fontSize: 14),
+            )
+          ],
+        )
       ],
     );
   }
