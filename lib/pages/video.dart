@@ -60,8 +60,6 @@ class _VideoPageState extends State<VideoPage> {
                         child: VideoPlayer(_controller),
                       ),
                     ),
-
-                  // Play/Pause Controls
                   if (!_isLoading && _showControls)
                     IconButton(
                       icon: Icon(
@@ -75,8 +73,6 @@ class _VideoPageState extends State<VideoPage> {
                     ),
                 ],
               ),
-
-              // Text Content Section
               const Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Column(
