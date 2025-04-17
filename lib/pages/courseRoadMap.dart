@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:ufuluapp/widgets/CourseOutline.dart';
 import 'package:ufuluapp/widgets/GradesWidget.dart';
 
 class CourseRoadMap extends StatelessWidget {
@@ -47,7 +48,7 @@ class CourseRoadMap extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: [
-                    Center(child: Text("Course Road Map")),
+                    CourseOutlineWidget(),
                     GradesWidget(),
                   ],
                 ),
