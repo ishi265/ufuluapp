@@ -34,7 +34,12 @@ class Courses extends StatelessWidget {
                   childAspectRatio: 1,
                 ),
                 itemBuilder: (context, index) {
-                  return CourseWidget();
+                  return CourseWidget(
+                    title: "Power Dynamics",
+                    rating: 3.9,
+                    reviews: 30,
+                    imagePath: "images/coursename.jpg",
+                  );
                 },
               ),
             ),
