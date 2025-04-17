@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:ufuluapp/widgets/ModuleWidget.dart';
 
 class CourseOutlineWidget extends StatelessWidget {
   const CourseOutlineWidget({
@@ -35,58 +36,12 @@ class CourseOutlineWidget extends StatelessWidget {
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: 2,
-                  itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Colors.black.withOpacity(0.1)),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(13.0),
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Course Introdution",
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                    Image.asset(
-                                      "images/accept.png",
-                                      width: 15,
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 12,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          "images/play-button.png",
-                                          width: 20,
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text("Play Video"),
-                                      ],
-                                    ),
-                                    Text("2 min")
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ))
+                  itemBuilder: (context, index) => ModuleWidget(
+                      courseName: "Introduction to Course",
+                      imagePath: "images/play-button.png",
+                      videoDuration: "2min",
+                      imageDone: "images/accept.png",
+                      wordsAction: "Play Video")),
             ],
           ),
         )
