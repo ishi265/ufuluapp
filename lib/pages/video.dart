@@ -78,27 +78,23 @@ class _VideoPageState extends State<VideoPage> {
 
               // Text Content Section
               const Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Video Title',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 20, 0, 40),
+                      child: Text("Health Relationships",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w600)),
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Published on: October 10, 2023',
-                      style: TextStyle(color: Colors.grey),
-                    ),
+                    Text('Course Overview',
+                        style: TextStyle(
+                          fontSize: 18,
+                        )),
                     SizedBox(height: 16),
                     Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-                      'Nullam euismod, nisl eget aliquam ultricies, nunc nisl '
-                      'aliquet nunc, quis aliquam nisl nunc eu nisl. '
-                      'Nullam euismod, nisl eget aliquam ultricies, nunc nisl '
-                      'aliquet nunc, quis aliquam nisl nunc eu nisl.',
+                      'A healthy relationship is one based on mutual respect, equality, consent, and safety—key factors in preventing SGBV. In Malawi, where cultural norms sometimes reinforce gender inequality, promoting healthy relationships is crucial to reducing violence.',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
