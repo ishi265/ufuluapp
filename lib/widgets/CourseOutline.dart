@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ufuluapp/widgets/AssignmentMarkWidget.dart';
 
 class CourseOutlineWidget extends StatelessWidget {
   const CourseOutlineWidget({
@@ -24,7 +23,7 @@ class CourseOutlineWidget extends StatelessWidget {
                   style: TextStyle(fontSize: 16)),
               SizedBox(height: 36),
               Text("Course Overview",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)), 
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
             ],
           ),
         ),
