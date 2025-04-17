@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AssignmentMarkWidget extends StatelessWidget {
-  const AssignmentMarkWidget({
-    super.key,
-  });
+  final String assignmentName;
+  final String status;
+  final String grade;
+  const AssignmentMarkWidget(
+      {super.key,
+      required this.assignmentName,
+      required this.status,
+      required this.grade});
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +37,14 @@ class AssignmentMarkWidget extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Assignment One", style: TextStyle(fontSize: 20)),
+                        Text(assignmentName, style: TextStyle(fontSize: 20)),
                         SizedBox(
                           height: 8,
                         ),
-                        Text("Passed")
+                        Text(status)
                       ],
                     ),
-                    Text("70%")
+                    Text(grade)
                   ],
                 ),
               )
