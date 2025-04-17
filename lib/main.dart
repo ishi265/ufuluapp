@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ufuluapp/pages/courses.dart';
+import 'package:ufuluapp/pages/courseRoadMap.dart';
 import 'package:ufuluapp/theme/theme.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: Courses(),
+      home: CourseRoadMap(),
     );
   }
 }
