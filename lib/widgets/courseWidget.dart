@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CourseWidget extends StatelessWidget {
-  const CourseWidget({super.key});
+  final String title;
+  final double rating;
+  final int reviews;
+  final String imagePath;
+
+  const CourseWidget(
+      {super.key,
+      required this.title,
+      required this.rating,
+      required this.reviews,
+      required this.imagePath});
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,9 @@ import 'package:iconsax/iconsax.dart';
 import 'package:ufuluapp/widgets/courseWidget.dart';
 
 class Courses extends StatelessWidget {
-  const Courses({super.key});
+  const Courses({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
