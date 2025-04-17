@@ -9,6 +9,29 @@ class CourseOutlineWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> modules = [
+      {
+        'courseName': "Introduction to Course",
+        'imagePath': "images/play-button.png",
+        'videoDuration': "2min",
+        'imageDone': "images/accept.png",
+        'wordsAction': "Play Video"
+      },
+      {
+        'courseName': "About Course",
+        'imagePath': "images/open-book.png",
+        'videoDuration': "6min",
+        'imageDone': null,
+        'wordsAction': "Reading"
+      },
+      {
+        'courseName': "Assignment One",
+        'imagePath': "images/contract.png",
+        'videoDuration': "10min",
+        'imageDone': null,
+        'wordsAction': "Write Exam"
+      },
+    ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -35,13 +58,13 @@ class CourseOutlineWidget extends StatelessWidget {
               ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: 2,
+                  itemCount: modules.length,
                   itemBuilder: (context, index) => ModuleWidget(
-                      courseName: "Introduction to Course",
-                      imagePath: "images/play-button.png",
-                      videoDuration: "2min",
-                      imageDone: "images/accept.png",
-                      wordsAction: "Play Video")),
+                      courseName: modules[index]['courseName'],
+                      imagePath: modules[index]['imagePath'],
+                      videoDuration: modules[index]['videoDuration'],
+                      imageDone: modules[index]['imageDone'],
+                      wordsAction: modules[index]['wordsAction'])),
             ],
           ),
         )
