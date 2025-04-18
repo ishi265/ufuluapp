@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ufuluapp/pages/assignment.dart';
+import 'package:ufuluapp/pages/video.dart';
 import 'package:ufuluapp/widgets/ModuleWidget.dart';
 
 class CourseOutlineWidget extends StatelessWidget {
@@ -55,15 +57,32 @@ class CourseOutlineWidget extends StatelessWidget {
           child: Column(
             children: [
               ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: modules.length,
-                  itemBuilder: (context, index) => ModuleWidget(
-                      courseName: modules[index]['courseName'],
-                      imagePath: modules[index]['imagePath'],
-                      videoDuration: modules[index]['videoDuration'],
-                      imageDone: modules[index]['imageDone'],
-                      wordsAction: modules[index]['wordsAction'])),
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: modules.length,
+                itemBuilder: (context, index) => ModuleWidget(
+                    courseName: modules[index]['courseName'],
+                    imagePath: modules[index]['imagePath'],
+                    videoDuration: modules[index]['videoDuration'],
+                    imageDone: modules[index]['imageDone'],
+                    wordsAction: modules[index]['wordsAction'],
+                    onTap: () {
+                      if (index == 0) {
+                        // GBV Courses
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => VideoPage()));
+                      }
+                      if (index == 1) {
+                        // GBV Courses
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AssignmentPage()));
+                      }
+                    }),
+              ),
             ],
           ),
         )

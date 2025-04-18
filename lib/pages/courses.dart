@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:ufuluapp/pages/courseRoadMap.dart';
 import 'package:ufuluapp/widgets/courseWidget.dart';
 
 class Courses extends StatelessWidget {
@@ -60,6 +61,12 @@ class Courses extends StatelessWidget {
                     rating: courses[index]['rating'],
                     reviews: courses[index]['reviews'],
                     imagePath: courses[index]['imagePath'],
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CourseRoadMap()));
+                    },
                   );
                 },
               ),
