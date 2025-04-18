@@ -74,7 +74,7 @@ class CourseOutlineWidget extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => VideoPage()));
                       }
-                      if (index == 1) {
+                      if (index == 2) {
                         // GBV Courses
                         Navigator.push(
                             context,

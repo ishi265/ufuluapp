@@ -5,13 +5,14 @@ class VideoPage extends StatefulWidget {
   const VideoPage({super.key});
 
   @override
-  _VideoPageState createState() => _VideoPageState();
+  State<VideoPage> createState() => _VideoPageState();
 }
 
 class _VideoPageState extends State<VideoPage> {
   late VideoPlayerController _controller;
   bool _isLoading = true;
   bool _showControls = false;
+  bool _hasError = false;
 
   @override
   void initState() {
@@ -20,20 +21,41 @@ class _VideoPageState extends State<VideoPage> {
   }
 
   Future<void> _initializeVideo() async {
-    _controller = VideoPlayerController.networkUrl(
-      Uri.parse(
-          'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'),
-    );
+    try {
+      _controller = VideoPlayerController.asset('images/GBV.mp4')
+        ..addListener(() {
+          if (_controller.value.hasError) {
+            setState(() {
+              _hasError = true;
+              _isLoading = false;
+            });
+          }
+        });
 
-    await _controller.initialize();
-    setState(() => _isLoading = false);
-    _controller.play();
+      await _controller.initialize();
+      setState(() => _isLoading = false);
+      _controller.play();
+    } catch (e) {
+      setState(() {
+        _hasError = true;
+        _isLoading = false;
+      });
+      debugPrint('Error initializing video: $e');
+    }
   }
 
   void _togglePlayPause() {
     setState(() {
       _controller.value.isPlaying ? _controller.pause() : _controller.play();
     });
+  }
+
+  void _retryLoadingVideo() {
+    setState(() {
+      _isLoading = true;
+      _hasError = false;
+    });
+    _initializeVideo();
   }
 
   @override
@@ -51,6 +73,25 @@ class _VideoPageState extends State<VideoPage> {
                       height: 250,
                       child: Center(child: CircularProgressIndicator()),
                     )
+                  else if (_hasError)
+                    Container(
+                      height: 250,
+                      color: Colors.grey[200],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.error_outline,
+                              size: 50, color: Colors.red),
+                          const SizedBox(height: 16),
+                          const Text('Failed to load video'),
+                          const SizedBox(height: 16),
+                          ElevatedButton(
+                            onPressed: _retryLoadingVideo,
+                            child: const Text('Retry'),
+                          ),
+                        ],
+                      ),
+                    )
                   else
                     GestureDetector(
                       onTap: () =>
@@ -60,7 +101,7 @@ class _VideoPageState extends State<VideoPage> {
                         child: VideoPlayer(_controller),
                       ),
                     ),
-                  if (!_isLoading && _showControls)
+                  if (!_isLoading && !_hasError && _showControls)
                     IconButton(
                       icon: Icon(
                         _controller.value.isPlaying
@@ -80,17 +121,19 @@ class _VideoPageState extends State<VideoPage> {
                   children: [
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 20, 0, 40),
-                      child: Text("Health Relationships",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600)),
-                    ),
-                    Text('Course Overview',
+                      child: Text(
+                        "Health Relationships",
                         style: TextStyle(
-                          fontSize: 18,
-                        )),
+                            fontSize: 18, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    Text(
+                      'Course Overview',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     SizedBox(height: 16),
                     Text(
-                      'A healthy relationship is one based on mutual respect, equality, consent, and safety—key factors in preventing GBV. In Malawi, where cultural norms sometimes reinforce gender inequality, promoting healthy relationships is crucial to reducing violence.',
+                      'A healthy relationship is one based on mutual respect, equality, consent, and safety—key factors in preventing GBV. In Malawi, where cultural norms sometimes reinforce gender inequality, promoting healthy relationships is crucial to reducing violence.',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],

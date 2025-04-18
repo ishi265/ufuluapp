@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   late AnimationController _breathingController;
   late Animation<double> _breathingAnimation;
-  String? selectedLanguage = 'Chichewa';
+  String? selectedLanguage = 'English';
 
   final List<Map<String, dynamic>> services = [
     {
@@ -106,7 +106,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         selectedLanguage = newValue;
                       });
                     },
-                    items: <String>['Chichewa', 'English']
+                    items: <String>['English', 'Chichewa']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,

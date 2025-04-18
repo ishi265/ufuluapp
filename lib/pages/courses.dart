@@ -33,7 +33,10 @@ class Courses extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Iconsax.arrow_left),
+        leading: IconButton(
+          icon: const Icon(Iconsax.arrow_left),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text("Courses"),
       ),
       body: Padding(
