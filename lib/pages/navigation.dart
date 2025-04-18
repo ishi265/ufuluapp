@@ -32,26 +32,26 @@ class _NavigationState extends State<Navigation> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Iconsax.home,
-              size: 20,
+              Iconsax.home_2,
+              size: 30,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Iconsax.map,
-              size: 20,
+              Iconsax.award,
+              size: 30,
             ),
             label: 'Awards',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Iconsax.archive,
-              size: 20,
+              Iconsax.profile_circle,
+              size: 30,
             ),
             label: 'Profile',
           ),

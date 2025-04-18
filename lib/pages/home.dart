@@ -195,7 +195,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                 image: service['image']),
                           );
                         }),
-                  )
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
                 ],
               )
             ],
