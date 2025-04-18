@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:ufuluapp/pages/login.dart';
 import 'package:ufuluapp/widgets/ButtonWidget.dart';
 
 class StartScreen extends StatelessWidget {
@@ -36,7 +37,14 @@ class StartScreen extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              ButtonWidget(text: "Continue", icon: Iconsax.arrow_right_1),
+              ButtonWidget(
+                text: "Continue",
+                icon: Iconsax.arrow_right_1,
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginPage()));
+                },
+              ),
             ],
           ),
         ),

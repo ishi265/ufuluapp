@@ -21,10 +21,10 @@ class MyTextBox extends StatelessWidget {
       decoration: InputDecoration(
           prefixIcon: Icon(
             icon,
-            size: 20,
+            size: 18,
             color: Theme.of(context).colorScheme.primary,
           ),
-          fillColor: Theme.of(context).colorScheme.secondary,
+          fillColor: Colors.white,
           filled: true,
           hintText: placeholder,
           border: OutlineInputBorder(

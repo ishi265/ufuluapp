@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:ufuluapp/pages/courses.dart';
 import 'package:ufuluapp/widgets/ServiceWidget.dart';
 
 class Home extends StatefulWidget {
@@ -20,20 +21,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       'text': 'Help-Line',
       'icon': Iconsax.arrow_right_1,
       'image': Image.asset("images/cellphone.png", width: 26),
-      'action': () async {
-        const number = "626";
-        await FlutterPhoneDirectCaller.callNumber(number);
-        print("Called Help-Line");
-      },
     },
     {
       'text': 'GBV Courses',
       'icon': Iconsax.arrow_right_1,
       'image': Image.asset("images/online-learning.png", width: 26),
-      'action': () {
-        // Navigator.push(context, MaterialPageRoute(builder: (context) => CoursesScreen()));
-        print("Navigating to GBV Courses");
-      },
     },
     {
       'text': 'Text Expert',
@@ -198,7 +190,25 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             text: service['text'] as String,
                             icon: service['icon'] as IconData,
                             image: service['image'] as Image,
-                            onTap: service['action'] as VoidCallback,
+                            onTap: () {
+                              if (index == 1) {
+                                // GBV Courses
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Courses()));
+                              }
+
+                              if (index == 0) {
+                                // Help-Line
+                                const number = "626";
+                                FlutterPhoneDirectCaller.callNumber(number);
+                              }
+                              if (index == 2) {
+                                // Text Expert
+                                print("Navigating to Text Expert");
+                              }
+                            },
                           ),
                         );
                       },

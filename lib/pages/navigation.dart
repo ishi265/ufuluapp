@@ -58,7 +58,8 @@ class _NavigationState extends State<Navigation> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: Theme.of(context).colorScheme.tertiary,
+        unselectedItemColor:
+            Theme.of(context).colorScheme.primary.withOpacity(0.5),
         onTap: _onItemTapped,
       ),
     );
