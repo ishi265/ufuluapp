@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ufuluapp/widgets/ServiceWidget.dart';
 
@@ -18,39 +19,41 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     {
       'text': 'Help-Line',
       'icon': Iconsax.arrow_right_1,
-      'image': Image.asset(
-        "images/cellphone.png",
-        width: 26,
-      ),
+      'image': Image.asset("images/cellphone.png", width: 26),
+      'action': () async {
+        const number = "626";
+        await FlutterPhoneDirectCaller.callNumber(number);
+        print("Called Help-Line");
+      },
     },
     {
       'text': 'GBV Courses',
       'icon': Iconsax.arrow_right_1,
-      'image': Image.asset(
-        "images/online-learning.png",
-        width: 26,
-      ),
+      'image': Image.asset("images/online-learning.png", width: 26),
+      'action': () {
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => CoursesScreen()));
+        print("Navigating to GBV Courses");
+      },
     },
     {
       'text': 'Text Expert',
       'icon': Iconsax.arrow_right_1,
-      'image': Image.asset(
-        "images/secure-messaging.png",
-        width: 26,
-      ),
+      'image': Image.asset("images/secure-messaging.png", width: 26),
+      'action': () {
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => TextExpertScreen()));
+        print("Navigating to Text Expert");
+      },
     }
   ];
 
   @override
   void initState() {
     super.initState();
-
     _breathingController = AnimationController(
-      duration: const Duration(milliseconds: 2000), // 2 second cycle
+      duration: const Duration(milliseconds: 2000),
       vsync: this,
-    )..repeat(reverse: true); // Automatically reverses and repeats
+    )..repeat(reverse: true);
 
-    // Breathing animation (subtle scale change)
     _breathingAnimation = Tween<double>(begin: 0.95, end: 1.05).animate(
       CurvedAnimation(
         parent: _breathingController,
@@ -74,6 +77,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              // Header Section
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -89,7 +93,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       ),
                       const SizedBox(width: 12),
                       const Text(
-                        "John Doe",
+                        "Ishmael Chitsonga",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w600),
                       )
@@ -120,16 +124,21 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ),
                 ],
               ),
+
+              // Main Content
               Column(
                 children: [
                   const SizedBox(height: 40),
+                  // SOS Button
                   AnimatedBuilder(
                     animation: _breathingController,
                     builder: (context, child) {
                       return Transform.scale(
                         scale: _breathingAnimation.value,
                         child: GestureDetector(
-                          onTap: () {
+                          onTap: () async {
+                            const number = "626";
+                            await FlutterPhoneDirectCaller.callNumber(number);
                             print("SOS button pressed");
                           },
                           child: Container(
@@ -158,47 +167,44 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       );
                     },
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     "SOS",
                     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 60),
                   ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
                     "Emergency Help Needed?",
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
-                    height: 8,
+                  const SizedBox(height: 8),
+                  const Text(
+                    "Press/Hold button to call",
+                    style: TextStyle(fontSize: 18),
                   ),
-                  Text("Press/Hold button to call",
-                      style: TextStyle(fontSize: 18)),
-                  SizedBox(
-                    height: 70,
-                  ),
+                  const SizedBox(height: 70),
+
+                  // Services List
                   SizedBox(
                     height: 100,
                     child: ListView.builder(
-                        itemCount: services.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          final service = services[index];
-                          return Padding(
-                            padding: EdgeInsets.only(right: 10),
-                            child: ServiceWidget(
-                                text: service['text'],
-                                icon: service['icon'],
-                                image: service['image']),
-                          );
-                        }),
+                      itemCount: services.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        final service = services[index];
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: ServiceWidget(
+                            text: service['text'] as String,
+                            icon: service['icon'] as IconData,
+                            image: service['image'] as Image,
+                            onTap: service['action'] as VoidCallback,
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                  SizedBox(
-                    height: 40,
-                  ),
+                  const SizedBox(height: 40),
                 ],
               )
             ],
